@@ -14,11 +14,12 @@ source $devops_prj_path/base.sh
 log_path='/opt/data/syslog-ng'
 
 function run() {
-    local args='--net=host --restart=always'
+    local args='--restart=always'
+    args="$args --net=host"
     args="$args -v $log_path:/var/log"
     # we use host network
     # so this is usless
-    # args="$args -p 514:514 -p 601:601/udp"
+    # args="$args -p 514:514/udp -p 601:601/tcp"
     args="$args -v $config_path/syslog-ng.conf:/etc/syslog-ng/conf.d/syslog-ng.conf"
     run_cmd "docker run -d $args --name $syslogng_container $syslogng_image"
 }
