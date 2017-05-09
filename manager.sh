@@ -6,7 +6,7 @@ devops_prj_path="$prj_path/devops"
 template_path="$devops_prj_path/template"   
 config_path="$devops_prj_path/config"   
 
-syslogng_image=docker.sunfund.com/balabit/syslog-ng
+syslogng_image=balabit/syslog-ng
 syslogng_container=syslog-ng
 
 source $devops_prj_path/base.sh
